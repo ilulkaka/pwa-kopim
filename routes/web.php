@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+// Route::post('/postlogin', 'UserController@postlogin');
+Route::post('/postlogin', [UserController::class, 'postlogin']);
+
+Route::middleware('pageMiddleware')->group(function () {
+    Route::get('/home', 'DashboardController@index')->name('home');
 });

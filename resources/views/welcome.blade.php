@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/style.css') }}">
 
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ asset('/assets/manifest.json') }}">
+    {{-- <link rel="manifest" href="{{ asset('/assets/manifest.json') }}"> --}}
 </head>
 
 <body>
@@ -58,13 +58,16 @@
             <div class="register-form mt-4">
                 <h6 class="mb-3 text-center">Log in to continue to the Kopim</h6>
 
-                <form action="#">
+                <form role="form" id="loginForm" method="post">
+                    @csrf
                     <div class="form-group">
-                        <input class="form-control" type="text" id="username" placeholder="Username">
+                        <input class="form-control" type="text" id="username" name="username"
+                            placeholder="Username">
                     </div>
 
                     <div class="form-group position-relative">
-                        <input class="form-control" id="psw-input" type="password" placeholder="Enter Password">
+                        <input class="form-control" id="password" name="password" type="password"
+                            placeholder="Enter Password">
                         <div class="position-absolute" id="password-visibility">
                             <i class="bi bi-eye"></i>
                             <i class="bi bi-eye-slash"></i>
@@ -86,8 +89,6 @@
     </div>
 
     <!-- All JavaScript Files -->
-    {{-- href="{{ asset('/assets/plugins/daterangepicker/daterangepicker.css') }}">
-    <script src="{{ asset('/assets/script/aplikasi.js') }}"></script> --}}
     <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('/assets/js/slideToggle.min.js') }}"></script>
     <script src="{{ asset('/assets/js/internet-status.js') }}"></script>
@@ -102,6 +103,30 @@
     <script src="{{ asset('/assets/js/dark-rtl.js') }}"></script>
     <script src="{{ asset('/assets/js/active.js') }}"></script>
     <script src="{{ asset('/assets/js/pwa.js') }}"></script>
+
+    <script type="text/javascript">
+        var APP_URL = {!! json_encode(url('/')) !!}
+    </script>
 </body>
 
 </html>
+
+<script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $("#loginForm").submit(function(event) {
+            event.preventDefault();
+            var data = $(this).serialize();
+
+            $.ajax({
+                url: APP_URL + '/postlogin',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+            })
+
+
+        });
+    });
+</script>
