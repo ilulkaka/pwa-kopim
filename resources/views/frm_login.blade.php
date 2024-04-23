@@ -61,13 +61,13 @@
                 <form role="form" id="loginForm" method="post">
                     @csrf
                     <div class="form-group">
-                        <input class="form-control" type="text" id="username" name="username"
-                            placeholder="Username">
+                        <input class="form-control" type="text" id="username" name="username" placeholder="Username"
+                            required>
                     </div>
 
                     <div class="form-group position-relative">
                         <input class="form-control" id="password" name="password" type="password"
-                            placeholder="Enter Password">
+                            placeholder="Enter Password" required>
                         <div class="position-absolute" id="password-visibility">
                             <i class="bi bi-eye"></i>
                             <i class="bi bi-eye-slash"></i>

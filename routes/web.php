@@ -15,9 +15,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frm_login');
 });
-// Route::post('/postlogin', 'UserController@postlogin');
 Route::post('/postlogin', [UserController::class, 'postlogin']);
 
 Route::middleware('pageMiddleware')->group(function () {

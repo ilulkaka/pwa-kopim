@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -10,67 +11,48 @@ class UserController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
-            'username' => 'required|min:4',
+            'username' => 'required|email',
             'password' => 'required|min:4',
         ]);
 
-        $data = Usermodel::where('user_name', $request['username'])->first();
-
-        if ($data) {
-            if (Hash::check($request['password'], $data->password)) {
-                Session::put('name', $data->user_name);
-                Session::put('id', $data->id);
-                Session::put('nik', $data->nik);
-
-                //$id = Session::get('id');
-                $user = $this->user_dept($data->id);
-
-                Session::put('dept', $user[0]->dept_section);
-                Session::put('level', $user[0]->nama_jabatan);
-                Session::put('kode_dept', $user[0]->kode_departemen);
-                //Session::put('dept', $data->departemen);
-                //Session::put('level', $data->level_user);
-                //Session::put('level_user', $data->level_user);
-                Session::put('login', 1);
-
-                $request->session()->save();
-
-                // return redirect()->route('home');
-
-                $data->rollApiKey(); //Model Function
-
-                $now = Carbon::now();
-                $upd_last_login = Usermodel::where('id', $data->id)->update([
-                    'last_login' => $now->format('Y-m-d H:i:s.v'),
-                ]);
-
-                return [
-                    'user' => $data,
-                    'token' => base64_encode($data->api_token),
-                    'message' => 'Authorization Successful!',
-                    'success' => true,
-                ];
-            } else {
-                Session::flash('alert', 'Password atau email salah !');
-                //return redirect('/login')->with('alert','Password atau email salah !');
-                //return redirect()->route('login');
-                return [
-                    //'user' => $data,
-                    //'token'=>base64_encode($data->api_token),
-                    'message' => 'Authorization failed!',
-                    'success' => false,
-                ];
-            }
-        } else {
-            Session::flash('alert', 'Password atau email salah !');
-            // return redirect('/login')->with('alert','Password atau email salah !');
-            //return redirect()->route('login');
-            return [
-                //'user' => $data,
-                //'token'=>base64_encode($data->api_token),
-                'message' => 'Authorization failed!',
-                'success' => false,
-            ];
+        $email = User::select('status', 'email', 'role')
+            ->where('email', $request->email)
+            ->get();
+        dd($email);
+        if ($email->isEmpty()) {
+            Session::flash('error', 'Akun tidak terdaftar .');
+            return redirect('/');
         }
+
+        if ($email[0]->status == 'Non Aktif') {
+            Session::flash('error', 'Akun sudah tidak Aktif .');
+            return redirect('/');
+        }
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            Session::flash('error', 'Email atau Password Salah');
+            return redirect('/');
+            //return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
+        $user = User::where('email', $request['email'])->firstOrFail();
+        // $userToken = auth()->user();
+
+        auth()
+            ->user()
+            ->tokens()
+            ->delete();
+
+        $token = $user->createToken($user->name)->plainTextToken;
+
+        if ($email[0]->role == 'Kasir') {
+            return redirect()->route('transaksi');
+        } else {
+            return redirect('home');
+        }
+        /*return response()->json([
+            'message' => 'Hi ' . $user->name . ', welcome to home',
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);*/
     }
 }
