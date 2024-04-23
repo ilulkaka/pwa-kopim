@@ -58,10 +58,10 @@
             <div class="register-form mt-4">
                 <h6 class="mb-3 text-center">Log in to continue to the Kopim</h6>
 
-                <form role="form" id="loginForm" method="post">
+                <form action="{{ route('loginaksi') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <input class="form-control" type="text" id="username" name="username" placeholder="Username"
+                        <input class="form-control" type="text" id="email" name="email" placeholder="Username"
                             required>
                     </div>
 

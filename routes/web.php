@@ -14,11 +14,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('frm_login');
-});
-Route::post('/postlogin', [UserController::class, 'postlogin']);
+Route::get('/', [UserController::class, 'login'])->name('login');
+Route::post('loginaksi', [UserController::class, 'loginaksi'])->name(
+    'loginaksi'
+);
 
-Route::middleware('pageMiddleware')->group(function () {
-    Route::get('/home', 'DashboardController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [UserController::class, 'index'])->name('home');
 });
