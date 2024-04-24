@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Title -->
-    <title>Affan - PWA Mobile HTML Template</title>
+    <title>KOPIM - Koperasi Insan Mandiri</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('/assets/img/core-img/favicon.ico') }}">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/style.css') }}">
 
     <!-- Web App Manifest -->
-    {{-- <link rel="manifest" href="{{ asset('/assets/manifest.json') }}"> --}}
+    <link rel="manifest" href="{{ asset('/assets/manifest.json') }}">
 </head>
 
 <body>
