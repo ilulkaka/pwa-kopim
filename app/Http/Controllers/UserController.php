@@ -20,45 +20,41 @@ class UserController extends Controller
             return view('frm_login');
         }
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors());
-        }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        // return response()->json([
-        //     'data' => $user,
-        //     'access_token' => $token,
-        //     'token_type' => 'Bearer',
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|string|max:255',
+        //     'email' => 'required|string|email|max:255|unique:users',
+        //     'password' => 'required|string|min:8',
         // ]);
-        return redirect('home');
+
+        // if ($validator->fails()) {
+        //     return response()->json($validator->errors());
+        // }
+
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
+
+        // $token = $user->createToken('auth_token')->plainTextToken;
+
+        // // return response()->json([
+        // //     'data' => $user,
+        // //     'access_token' => $token,
+        // //     'token_type' => 'Bearer',
+        // // ]);
+        // return redirect('home');
     }
 
     public function loginaksi(Request $request)
     {
         // dd($request->all());
-        $this->validate($request, [
-            'username' => 'required|email',
-            'password' => 'required|min:3',
-        ]);
 
         $email = DB::table('users')
-            ->select('status', 'email', 'role', 'password')
-            ->where('email', $request->username)
+            ->select('status', 'email', 'role')
+            ->where('email', $request->email)
             ->get();
-        // dd($email);
+
         if ($email->isEmpty()) {
             Session::flash('error', 'Akun tidak terdaftar .');
             return redirect('/');
@@ -71,8 +67,8 @@ class UserController extends Controller
 
         if (!Auth::attempt($request->only('email', 'password'))) {
             Session::flash('error', 'Email atau Password Salah');
-            // return redirect('/');
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return redirect('/');
+            // return response()->json(['message' => 'Unauthorized'], 401);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -100,5 +96,20 @@ class UserController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function logoutaksi()
+    {
+        //return redirect('/');
+        auth()
+            ->user()
+            ->tokens()
+            ->delete();
+        Auth::logout();
+        return redirect('/');
+        //return [
+        //  'message' =>
+        //    'You have successfully logged out and the token was successfully deleted',
+        //];
     }
 }

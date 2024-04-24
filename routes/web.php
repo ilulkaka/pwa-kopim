@@ -18,6 +18,9 @@ Route::get('/', [UserController::class, 'login'])->name('login');
 Route::post('loginaksi', [UserController::class, 'loginaksi'])->name(
     'loginaksi'
 );
+Route::get('logoutaksi', [UserController::class, 'logoutaksi'])->name(
+    'logoutaksi'
+);
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'index'])->name('home');

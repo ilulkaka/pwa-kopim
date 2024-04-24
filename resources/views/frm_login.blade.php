@@ -51,7 +51,7 @@
     <div class="login-wrapper d-flex align-items-center justify-content-center">
         <div class="custom-container">
             <div class="text-center px-4">
-                <img class="login-intro-img" src="{{ asset('/assets/img/bg-img/36.png') }}" alt="">
+                {{-- <img class="login-intro-img" src="{{ asset('/assets/img/bg-img/36.png') }}" alt=""> --}}
             </div>
 
             <!-- Register Form -->
@@ -61,13 +61,12 @@
                 <form action="{{ route('loginaksi') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <input class="form-control" type="text" id="email" name="email" placeholder="Username"
-                            required>
+                        <input class="form-control" type="text" id="email" name="email" placeholder="Username">
                     </div>
 
                     <div class="form-group position-relative">
                         <input class="form-control" id="password" name="password" type="password"
-                            placeholder="Enter Password" required>
+                            placeholder="Enter Password">
                         <div class="position-absolute" id="password-visibility">
                             <i class="bi bi-eye"></i>
                             <i class="bi bi-eye-slash"></i>
@@ -115,18 +114,6 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        $("#loginForm").submit(function(event) {
-            event.preventDefault();
-            var data = $(this).serialize();
 
-            $.ajax({
-                url: APP_URL + '/postlogin',
-                type: 'POST',
-                dataType: 'json',
-                data: data,
-            })
-
-
-        });
     });
 </script>
