@@ -84,7 +84,7 @@
 
                     <!-- User Info -->
                     <div class="user-info">
-                        <h6 class="user-name mb-0">Affan Islam</h6>
+                        <h6 class="user-name mb-0">Affan Islam1</h6>
                         <span>CEO, Designing World</span>
                     </div>
                 </div>
