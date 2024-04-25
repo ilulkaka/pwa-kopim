@@ -115,6 +115,6 @@ class UserController extends Controller
 
     public function settings()
     {
-        return view('settings');
+        return view('settings/settings');
     }
 }

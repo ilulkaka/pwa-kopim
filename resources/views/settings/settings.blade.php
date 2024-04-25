@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="single-setting-panel">
-                        <a href="login.html">
+                        <a href="{{ route('logoutaksi') }}">
                             <div class="icon-wrapper bg-danger">
                                 <i class="bi bi-box-arrow-right"></i>
                             </div>

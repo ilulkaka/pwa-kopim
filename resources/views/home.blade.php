@@ -1,34 +1,7 @@
+@extends('layout.header')
 @extends('layout.footer')
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Affan - PWA Mobile HTML Template">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <meta name="theme-color" content="#0134d4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <!-- Title -->
-    <title>Affan - PWA Mobile HTML Template</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('/assets/img/core-img/favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('/assets/img/icons/icon-96x96.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('/assets/img/icons/icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('/assets/img/icons/icon-167x167.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/img/icons/icon-180x180.png') }}">
-
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ asset('/assets/style.css') }}">
-
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ asset('/assets/manifest.json') }}">
-</head>
 
 <body>
     <!-- Preloader -->
@@ -160,7 +133,7 @@
                 <div class="copyright-info">
                     <p>
                         <span id="copyrightYear"></span>
-                        &copy; Made by <a href="#">Designing World</a>
+                        &copy; Made by <a href="#">KOPIM</a>
                     </p>
                 </div>
             </div>
@@ -175,13 +148,55 @@
             <div class="toast-body">
                 <i class="bi bi-bookmark-check text-white h1 mb-0"></i>
                 <div class="toast-text ms-3 me-2">
-                    <p class="mb-1 text-white">Welcome to Affan!</p>
+                    <p class="mb-1 text-white">Welcome to KOPIM!</p>
                     <small class="d-block">Click the <strong>Add to Home Screen</strong> button &amp; enjoy it like an
                         app.</small>
                 </div>
             </div>
-            <button class="btn btn-close btn-close-white position-absolute p-1" type="button"
-                data-bs-dismiss="toast" aria-label="Close"></button>
+            <button class="btn btn-close btn-close-white position-absolute p-1" type="button" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+
+        <br>
+        <div class="container direction-rtl">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                {{-- <div class="card mx-auto bg-gray">
+                                    <img src="img/demo-img/pwa.png" alt="">
+                                </div> --}}
+                                <p class="mb-0">Rp. 5,000</p>
+                                <br>
+                                <p class="mb-0" style="margin-top: -10px">Trx Hari ini</p>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                {{-- <div class="card mx-auto bg-gray">
+                                    <img src="img/demo-img/bootstrap.png" alt="">
+                                </div> --}}
+                                <p class="mb-0">Rp. 5,000</p>
+                                <br>
+                                <p class="mb-0" style="margin-top: -10px">Tagihan Bulan ini</p>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="feature-card mx-auto text-center">
+                                {{-- <div class="card mx-auto bg-gray">
+                                    <img src="img/demo-img/js.png" alt="">
+                                </div> --}}
+                                <p class="mb-0">Rp. 5,000</p>
+                                <br>
+                                <p class="mb-0" style="margin-top: -10px">Vanilla JS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tiny Slider One Wrapper -->
@@ -256,88 +271,6 @@
         </div>
 
         <div class="pt-3"></div>
-
-        <div class="container direction-rtl">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/pwa.png" alt="">
-                                </div>
-                                <p class="mb-0">PWA Ready</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/bootstrap.png" alt="">
-                                </div>
-                                <p class="mb-0">Bootstrap 5</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/js.png" alt="">
-                                </div>
-                                <p class="mb-0">Vanilla JS</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card card-bg-img bg-img bg-overlay mb-3" style="background-image: url('img/bg-img/3.jpg')">
-                <div class="card-body direction-rtl p-4">
-                    <h2 class="text-white">Reusable elements</h2>
-                    <p class="mb-4 text-white">More than 220+ reusable modern design elements. Just copy the code and
-                        paste it on
-                        your desired page.</p>
-                    <a class="btn btn-warning" href="elements.html">All elements</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container direction-rtl">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/sass.png" alt="">
-                                </div>
-                                <p class="mb-0">SCSS</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/npm.png" alt="">
-                                </div>
-                                <p class="mb-0">npm</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/gulp.png" alt="">
-                                </div>
-                                <p class="mb-0">Gulp 4</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="container">
             <div class="card bg-primary mb-3 bg-img" style="background-image: url('img/core-img/1.png')">
@@ -453,41 +386,6 @@
                                     <h6 class="mb-2">Nice modern design, <br> I love the product.</h6>
                                     <span class="d-block">electroMEZ, Themeforest</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container direction-rtl">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/star.png" alt="">
-                                </div>
-                                <p class="mb-0">Best Rated</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/elegant.png" alt="">
-                                </div>
-                                <p class="mb-0">Elegant</p>
-                            </div>
-                        </div>
-
-                        <div class="col-4">
-                            <div class="feature-card mx-auto text-center">
-                                <div class="card mx-auto bg-gray">
-                                    <img src="img/demo-img/lightning.png" alt="">
-                                </div>
-                                <p class="mb-0">Trendsetter</p>
                             </div>
                         </div>
                     </div>
