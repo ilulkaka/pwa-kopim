@@ -100,40 +100,35 @@
             </div>
         </div>
 
-        <!-- Element Heading -->
         <div class="container">
             <div class="card">
-                <div class="card-body">
-                    <!-- Price Table Two -->
-                    <div class="price-table-two d-flex align-items-center">
-
-                        <!-- Single Price Table -->
-                        <div class="single-price-table active-effect">
-                            <div class="text">
-                                <h6 class="fz-14">Simpanan Pokok</h6>
-                            </div>
-                            <div class="price" style="margin-top: 10px">
-                                <h3>{{ number_format($simpok, 0) }}</h3>
-                                <span class="fz-12">end of {{ date('Y') }}</span>
+                <div class="card-body direction-rtl">
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- Single Counter -->
+                            <div class="single-counter-wrap text-center">
+                                <i class="bi bi-heart-fill mb-2 text-danger"></i>
+                                <h4 class="mb-1 text-success">
+                                    <span class="counter">Rp. {{ number_format($simpok, 0) }}</span>
+                                </h4>
+                                <p class="mb-0 fz-16"><b>Simpanan Pokok</b> </p>
                             </div>
                         </div>
 
-                        <!-- Single Price Table -->
-                        <div class="single-price-table active-effect">
-                            <div class="text">
-                                <h6 class="fz-14">Simpanan Wajib</h6>
-                            </div>
-                            <div class="price" style="margin-top: 10px">
-                                <h3>{{ number_format($simwa, 0) }}</h3>
-                                <span class="fz-12">end of {{ date('Y') }}</span>
+                        <div class="col-6">
+                            <!-- Single Counter -->
+                            <div class="single-counter-wrap text-center">
+                                <i class="bi bi-cup-fill mb-2 text-success"></i>
+                                <h4 class="mb-1 text-danger">
+                                    <span class="counter">Rp. {{ number_format($simwa, 0) }}</span>
+                                </h4>
+                                <p class="mb-0 fz-16"><b>Simpanan Wajib</b> </p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
         <br>
 
         <!-- Tiny Slider One Wrapper -->
