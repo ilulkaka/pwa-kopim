@@ -107,7 +107,7 @@
                         <div class="col-6">
                             <!-- Single Counter -->
                             <div class="single-counter-wrap text-center">
-                                <i class="bi bi-heart-fill mb-2 text-danger"></i>
+                                <i class="bi bi-cup-fill mb-2 text-success"></i>
                                 <h4 class="mb-1 text-success">
                                     <span class="counter">Rp. {{ number_format($simpok, 0) }}</span>
                                 </h4>
@@ -118,7 +118,7 @@
                         <div class="col-6">
                             <!-- Single Counter -->
                             <div class="single-counter-wrap text-center">
-                                <i class="bi bi-cup-fill mb-2 text-success"></i>
+                                <i class="bi bi-heart-fill mb-2 text-danger"></i>
                                 <h4 class="mb-1 text-danger">
                                     <span class="counter">Rp. {{ number_format($simwa, 0) }}</span>
                                 </h4>
