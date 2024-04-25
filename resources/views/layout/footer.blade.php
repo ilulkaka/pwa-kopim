@@ -4,7 +4,8 @@
             <!-- Footer Content -->
             <div class="footer-nav position-relative">
                 <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                    <li class="active">
+                    {{-- <li class="active"> --}}
+                    <li>
                         <a href="{{ route('home') }}">
                             <i class="bi bi-house"></i>
                             <span>Home</span>

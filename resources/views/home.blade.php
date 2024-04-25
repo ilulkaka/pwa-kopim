@@ -67,7 +67,7 @@
                                 {{-- <div class="card mx-auto bg-gray">
                                     <img src="img/demo-img/pwa.png" alt="">
                                 </div> --}}
-                                <p class="mb-0">Rp. 5,000</p>
+                                <p class="mb-0">Rp. {{ number_format($tagihan_sekarang, 0) }}</p>
                                 <br>
                                 <p class="mb-0" style="margin-top: -10px">Trx Hari ini</p>
                             </div>
@@ -78,7 +78,8 @@
                                 {{-- <div class="card mx-auto bg-gray">
                                     <img src="img/demo-img/bootstrap.png" alt="">
                                 </div> --}}
-                                <p class="mb-0">Rp. 5,000</p>
+                                <p class="mb-0">Rp. {{ number_format($aktif[0]->nominal + $angsuran + $iuran, 0) }}
+                                </p>
                                 <br>
                                 <p class="mb-0" style="margin-top: -10px">Tagihan Bulan ini</p>
                             </div>
@@ -89,9 +90,9 @@
                                 {{-- <div class="card mx-auto bg-gray">
                                     <img src="img/demo-img/js.png" alt="">
                                 </div> --}}
-                                <p class="mb-0">Rp. 5,000</p>
+                                <p class="mb-0">Rp. {{ number_format($iuran, 0) }}</p>
                                 <br>
-                                <p class="mb-0" style="margin-top: -10px">Vanilla JS</p>
+                                <p class="mb-0" style="margin-top: -10px">Iuran Anggota</p>
                             </div>
                         </div>
                     </div>
@@ -295,25 +296,6 @@
 
         <div class="pb-3"></div>
     </div>
-
-    <!-- Footer Nav -->
-
-
-    <!-- All JavaScript Files -->
-    <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/slideToggle.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/internet-status.js') }}"></script>
-    <script src="{{ asset('/assets/js/tiny-slider.js') }}"></script>
-    <script src="{{ asset('/assets/js/venobox.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/countdown.js') }}"></script>
-    <script src="{{ asset('/assets/js/rangeslider.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/vanilla-dataTables.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/index.js') }}"></script>
-    <script src="{{ asset('/assets/js/imagesloaded.pkgd.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/dark-rtl.js') }}"></script>
-    <script src="{{ asset('/assets/js/active.js') }}"></script>
-    <script src="{{ asset('/assets/js/pwa.js') }}"></script>
 </body>
 
 {{-- </html> --}}
