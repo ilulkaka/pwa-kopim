@@ -19,9 +19,4 @@
     <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('/assets/img/icons/icon-167x167.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/img/icons/icon-180x180.png') }}">
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ asset('/assets/style.css') }}">
-
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ asset('/assets/manifest.json') }}">
 </head>
