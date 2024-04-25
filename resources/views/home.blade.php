@@ -100,6 +100,42 @@
             </div>
         </div>
 
+        <!-- Element Heading -->
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Price Table Two -->
+                    <div class="price-table-two d-flex align-items-center">
+
+                        <!-- Single Price Table -->
+                        <div class="single-price-table active-effect">
+                            <div class="text">
+                                <h6 class="fz-14">Simpanan Pokok</h6>
+                            </div>
+                            <div class="price" style="margin-top: 10px">
+                                <h3>Rp. {{ number_format($simpok, 0) }}</h3>
+                                <span class="fz-12">end of {{ date('Y') }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Single Price Table -->
+                        <div class="single-price-table active-effect">
+                            <div class="text">
+                                <h6 class="fz-14">Simpanan Wajib</h6>
+                            </div>
+                            <div class="price" style="margin-top: 10px">
+                                <h3>Rp. {{ number_format($simwa, 0) }}</h3>
+                                <span class="fz-12">end of {{ date('Y') }}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
         <!-- Tiny Slider One Wrapper -->
         <div class="tiny-slider-one-wrapper">
             <div class="tiny-slider-one">
