@@ -112,4 +112,9 @@ class UserController extends Controller
         //    'You have successfully logged out and the token was successfully deleted',
         //];
     }
+
+    public function settings()
+    {
+        return view('settings');
+    }
 }

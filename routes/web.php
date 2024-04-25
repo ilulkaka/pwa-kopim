@@ -24,4 +24,7 @@ Route::get('logoutaksi', [UserController::class, 'logoutaksi'])->name(
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'index'])->name('home');
+    Route::get('settings', [UserController::class, 'settings'])->name(
+        'settings'
+    );
 });
