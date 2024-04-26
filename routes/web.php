@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'index'])->name('home');
     Route::get('settings', [UserController::class, 'settings'])->name(
         'settings'
+    );
+
+    Route::get('details', [DashboardController::class, 'details'])->name(
+        'details'
     );
 });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Affan - PWA Mobile HTML Template">
+    <meta name="description" content="KOPIM - Koperasi Insan Mandiri">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Title -->
-    <title>Affan - PWA Mobile HTML Template</title>
+    <title>KOPIM - Koperasi Insan Mandiri</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('/assets/img/core-img/favicon.ico') }}">
@@ -85,15 +85,15 @@
 
                     <!-- User Info -->
                     <div class="user-info">
-                        <h6 class="user-name mb-0">Affan Islam1</h6>
-                        <span>CEO, Designing World</span>
+                        <h6 class="user-name mb-0">{{ Auth::user()->name }}</h6>
+                        <span>{{ Auth::user()->email }}</span>
                     </div>
                 </div>
 
                 <!-- Sidenav Nav -->
                 <ul class="sidenav-nav ps-0">
                     <li>
-                        <a href="home.html"><i class="bi bi-house-door"></i> Home</a>
+                        <a href="{{ route('home') }}"><i class="bi bi-house-door"></i> Home</a>
                     </li>
                     <li>
                         <a href="elements.html"><i class="bi bi-folder2-open"></i> Elements
@@ -101,7 +101,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages.html"><i class="bi bi-collection"></i> Pages
+                        <a href="{{ route('details') }}"><i class="bi bi-collection"></i> Detail
                             <span class="badge bg-success rounded-pill ms-2">100+</span>
                         </a>
                     </li>
@@ -126,7 +126,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="settings.html"><i class="bi bi-gear"></i> Settings</a>
+                        <a href="{{ route('settings') }}"><i class="bi bi-gear"></i> Settings</a>
                     </li>
                     <li>
                         <div class="night-mode-nav">
@@ -166,7 +166,7 @@
             </div>
         </div>
     </div>
-    @yield('konten')
+    @yield('sidenav')
 
     <!-- Footer Nav -->
     <div class="footer-nav-area" id="footerNav">
@@ -174,17 +174,18 @@
             <!-- Footer Content -->
             <div class="footer-nav position-relative">
                 <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                    <li class="active">
-                        <a href="home.html">
+                    {{-- <li class="active"> --}}
+                    <li>
+                        <a href="{{ route('home') }}">
                             <i class="bi bi-house"></i>
                             <span>Home</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="pages.html">
+                        <a href="{{ route('details') }}">
                             <i class="bi bi-collection"></i>
-                            <span>Pages</span>
+                            <span>Detail</span>
                         </a>
                     </li>
 
@@ -203,7 +204,7 @@
                     </li>
 
                     <li>
-                        <a href="settings.html">
+                        <a href="{{ route('settings') }}">
                             <i class="bi bi-gear"></i>
                             <span>Settings</span>
                         </a>

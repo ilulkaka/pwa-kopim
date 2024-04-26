@@ -101,7 +101,7 @@ class UserController extends Controller
         $nik = Auth::user()->nik;
 
         $nobarcode = DB::select(
-            "select id_anggota, no_barcode from tb_anggota where nik='$nik' and status='Aktif'"
+            "select id_anggota, nama, no_barcode from tb_anggota where nik='$nik' and status='Aktif'"
         );
 
         if (empty($nobarcode)) {
@@ -203,6 +203,7 @@ class UserController extends Controller
             'iuran' => $iuran,
             'qrCode' => $qrCode,
             'tagihan_sekarang' => $tagNow[0]->nominal,
+            'nama' => $nobarcode[0]->nama,
         ]);
     }
 
