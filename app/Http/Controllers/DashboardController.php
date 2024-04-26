@@ -10,4 +10,9 @@ class DashboardController extends Controller
     {
         return view('details');
     }
+
+    public function listTransaksi(Request $request)
+    {
+        dd($request->all());
+    }
 }

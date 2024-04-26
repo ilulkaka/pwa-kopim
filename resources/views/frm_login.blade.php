@@ -103,9 +103,6 @@
     <script src="{{ asset('/assets/js/active.js') }}"></script>
     <script src="{{ asset('/assets/js/pwa.js') }}"></script>
 
-    <script type="text/javascript">
-        var APP_URL = {!! json_encode(url('/')) !!}
-    </script>
 </body>
 
 </html>
