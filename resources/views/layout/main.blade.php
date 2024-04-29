@@ -88,6 +88,7 @@
                         <h6 class="user-name mb-0">{{ Auth::user()->name }}</h6>
                         <span>{{ Auth::user()->email }}</span>
                     </div>
+                    <input type="hidden" id="id" name="id" value="{{ Auth::user()->id }}">
                 </div>
 
                 <!-- Sidenav Nav -->
