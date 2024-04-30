@@ -4,6 +4,18 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <input type="date" name="" id="" class="form-control w-100"
+                            value="{{ date('Y-m') . '-01' }}">
+                    </div>
+                    <div class="col">
+                        <input type="date" name="" id="" class="form-control w-100"
+                            value="{{ date('Y-m-d') }}">
+                    </div>
+                </div>
+
+
                 <table class="w-100" id="dataTable">
                     <thead>
                         <tr>
@@ -23,6 +35,7 @@
 
 <script>
     $(document).ready(function() {
+
         var list_detail = $('#dataTable').DataTable({
             // destroy: true,
             processing: true,

@@ -473,8 +473,9 @@ let dataTable1 = document.getElementById('dataTable');
 if (dataTable1) {
     new DataTable(dataTable1, {
         perPage: 10,
-        perPageSelect: [10, 20, 30, 40, 50],
-        searchable: true,
+        // perPageSelect: [10, 20, 30, 40, 50],
+        perPageSelect: false,
+        searchable: false,
         sortable: true,
         fixedHeight: false,
         prevText: '<i class="bi bi-arrow-left-short"></i>',
