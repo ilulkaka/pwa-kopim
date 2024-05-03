@@ -224,6 +224,18 @@ class UserController extends Controller
 
     public function settings()
     {
-        return view('settings/settings');
+        $nik = Auth::user()->nik;
+
+        $nobarcode = DB::select(
+            "select id_anggota from tb_anggota where nik='$nik' and status='Aktif'"
+        );
+
+        if (empty($nobarcode)) {
+            $idAnggota = 0;
+        } else {
+            $idAnggota = $nobarcode[0]->id_anggota;
+        }
+        $qrCode = QrCode::size(350)->generate('kopim.kopbm.com/' . $idAnggota);
+        return view('settings/settings', ['qrCode' => $qrCode]);
     }
 }

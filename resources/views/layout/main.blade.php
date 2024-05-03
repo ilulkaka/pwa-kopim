@@ -1,3 +1,4 @@
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,6 +97,14 @@
                     <li>
                         <a href="{{ route('home') }}"><i class="bi bi-house-door"></i> Home</a>
                     </li>
+                    {{-- <li>
+                        <a href="{{ route('qrcode') }}"><i class="bi bi-qr-code"></i> QR Code</a>
+                    </li> --}}
+                    {{-- <li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal_qrCode"><i
+                                class="bi bi-qr-code"></i> QR Code
+                        </a>
+                    </li> --}}
                     <li>
                         <a href="elements.html"><i class="bi bi-folder2-open"></i> Elements
                             <span class="badge bg-danger rounded-pill ms-2">220+</span>
@@ -167,6 +176,7 @@
             </div>
         </div>
     </div>
+
     @yield('sidenav')
 
     <!-- Footer Nav -->
@@ -191,14 +201,14 @@
                     </li>
 
                     <li>
-                        <a href="elements.html">
+                        <a href="{{ route('vError') }}">
                             <i class="bi bi-folder2-open"></i>
                             <span>Elements</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="chat-users.html">
+                        <a href="{{ route('vError') }}">
                             <i class="bi bi-chat-dots"></i>
                             <span>Chat</span>
                         </a>

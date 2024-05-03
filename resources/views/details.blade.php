@@ -1,21 +1,15 @@
 @extends('layout.main')
 
+<head>
+    <!-- Tag-tag meta lainnya -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Link CSS, script JavaScript, dan lainnya -->
+</head>
+
 <div class="page-content-wrapper py-3">
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col">
-                        <input type="date" name="" id="" class="form-control w-100"
-                            value="{{ date('Y-m') . '-01' }}">
-                    </div>
-                    <div class="col">
-                        <input type="date" name="" id="" class="form-control w-100"
-                            value="{{ date('Y-m-d') }}">
-                    </div>
-                </div>
-
-
                 <table class="w-100" id="dataTable">
                     <thead>
                         <tr>
@@ -32,8 +26,9 @@
 </div>
 
 <script src="{{ asset('/assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
-<script>
+{{-- <script>
     $(document).ready(function() {
 
         var list_detail = $('#dataTable').DataTable({
@@ -67,5 +62,32 @@
                 },
             ],
         });
+    });
+</script> --}}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('/api/listTransaksi', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                        'content') // Jika menggunakan CSRF token
+                },
+                body: JSON.stringify({
+                    id: '0031' // Ganti dengan nilai yang sesuai
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                var table = new DataTable("#dataTable", {
+                    data: {
+                        headings: ['Tanggal', 'Nominal'],
+                        rows: data // Data dari controller
+                    }
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
     });
 </script>

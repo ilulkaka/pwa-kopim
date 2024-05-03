@@ -32,4 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::get('details', [DashboardController::class, 'details'])->name(
         'details'
     );
+
+    Route::get('vError', [DashboardController::class, 'vError'])->name(
+        'vError'
+    );
+
+    Route::get('qrcode', [UserController::class, 'qrcode'])->name('qrcode');
 });

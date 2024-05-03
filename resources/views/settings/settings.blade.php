@@ -1,64 +1,40 @@
 @extends('layout.main')
 
-
-<!-- Dark mode switching -->
-<div class="dark-mode-switching">
-    <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-        <div class="dark-mode-text text-center">
-            <i class="bi bi-moon"></i>
-            <p class="mb-0">Switching to dark mode</p>
-        </div>
-        <div class="light-mode-text text-center">
-            <i class="bi bi-brightness-high"></i>
-            <p class="mb-0">Switching to light mode</p>
-        </div>
-    </div>
-</div>
-
-<!-- RTL mode switching -->
-<div class="rtl-mode-switching">
-    <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-        <div class="rtl-mode-text text-center">
-            <i class="bi bi-text-right"></i>
-            <p class="mb-0">Switching to RTL mode</p>
-        </div>
-        <div class="ltr-mode-text text-center">
-            <i class="bi bi-text-left"></i>
-            <p class="mb-0">Switching to default mode</p>
-        </div>
-    </div>
-</div>
-
-<!-- Header Area-->
-<div class="header-area" id="headerArea">
-    <div class="container">
-        <!-- Header Content-->
-        <div
-            class="header-content header-style-four position-relative d-flex align-items-center justify-content-between">
-            <!-- Back Button-->
-            <div class="back-button">
-                <a href="home.html">
-                    <i class="bi bi-arrow-left-short"></i>
-                </a>
-            </div>
-
-            <!-- Page Title-->
-            <div class="page-heading">
-                <h6 class="mb-0">Settings</h6>
-            </div>
-
-            <!-- User Profile-->
-            <div class="user-profile-wrapper">
-                <a class="user-profile-trigger-btn" href="#">
-                    <img src="img/bg-img/20.jpg" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="page-content-wrapper py-3">
     <div class="container">
+
+        <!-- QR-->
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body direction-rtl">
+                <p class="mb-2">QR Code</p>
+
+                <div class="single-setting-panel">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal_qrCode">
+                        <div class="icon-wrapper bg-primary">
+                            <i class="bi bi-qr-code"></i>
+                        </div>
+                        QR Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal qr code (qr) -->
+        <div class="modal fade" id="modal_qrCode" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row justify-content-center" style="margin-top: -1%;">
+                            {!! $qrCode !!}
+                        </div>
+                        <br>
+                        <h5 style="text-align: center;"><b>{{ Auth::user()->name }} </b></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Setting Card-->
         <div class="card mb-3 shadow-sm">
             <div class="card-body direction-rtl">
@@ -100,7 +76,7 @@
                 <p class="mb-2">Account Setup</p>
 
                 <div class="single-setting-panel">
-                    <a href="user-profile.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper">
                             <i class="bi bi-person"></i>
                         </div>
@@ -109,7 +85,7 @@
                 </div>
 
                 <div class="single-setting-panel">
-                    <a href="user-profile.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper bg-warning">
                             <i class="bi bi-pencil"></i>
                         </div>
@@ -118,7 +94,7 @@
                 </div>
 
                 <div class="single-setting-panel">
-                    <a href="change-password.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper bg-info">
                             <i class="bi bi-lock"></i>
                         </div>
@@ -127,7 +103,7 @@
                 </div>
 
                 <div class="single-setting-panel">
-                    <a href="language.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper bg-success">
                             <i class="bi bi-globe2"></i>
                         </div>
@@ -136,7 +112,7 @@
                 </div>
 
                 <div class="single-setting-panel">
-                    <a href="privacy-policy.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper bg-danger">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -152,7 +128,7 @@
                 <p class="mb-2">Register &amp; Logout</p>
 
                 <div class="single-setting-panel">
-                    <a href="register.html">
+                    <a href="{{ route('vError') }}">
                         <div class="icon-wrapper bg-primary">
                             <i class="bi bi-person"></i>
                         </div>

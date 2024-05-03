@@ -20,7 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('listTransaksi', [
-    DashboardController::class,
-    'listTransaksi',
-])->name('listTransaksi');
+// Route::post('listTransaksi', [
+//     DashboardController::class,
+//     'listTransaksi',
+// ])->name('listTransaksi');
+
+Route::post('api/listTransaksi', [DashboardController::class, 'listTransaksi']);
